@@ -9,20 +9,49 @@
             width: 350px;
             position: absolute;
             margin-left: -20px;
-            margin-top: 280px;
+            margin-top: 270px;
         }
         #greycar{
             width: 300px;
             position: absolute;
             margin-left: 0px;
-            margin-top: 130px;
+            margin-top: 140px;
         }
     </style>
 </head>
 <body>
-    <div style="width: 100px; background-image: url(car-road.png);height: 600px;width: 2000px;" >
+    <div style="width: 100px; background-image: url(car-road.png);height: 600px;  width: 2000px;" >
         <img id="bluecar" src="blue-car.png"/>
         <img id="greycar" src="grey-car.png"/>
     </div>
+      <input type="text" id="comand" onkeypress="uraldah(event)"/>
+    <script>
+        let bluecar=document.getElementById("bluecar")
+        let greycar=document.getElementById("greycar")
+        let go1= -20;
+        let go2= 0
+        function uraldah(event){
+    if(event.key == "d"){
+            go1 += 50;
+        bluecar.style.marginLeft = go1 +"px";
+    } else if(event.key == "g"){
+            go2 += 50;
+        greycar.style.marginLeft = go2 +"px";
+    }
+    if (go1 > 1300){
+        alert('winner is BLUE car ');
+        bluecar.style.marginLeft = "-20px";
+        greycar.style.marginLeft = "0px";
+        go1 = -20
+        go2 = 0
+    } else if(go2>1300){
+        alert("winner is GREY car");
+        bluecar.style.marginLeft = "-20px";
+        greycar.style.marginLeft = "0px";
+        go1 = -20
+        go2 = 0
+    }
+}
+    </script>
 </body>
 </html>
